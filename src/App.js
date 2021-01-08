@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Login from "./Login";
+import { useStateValue } from "./StateProvider";
 
 function App() {
+  // const [user, setUser] = useState(null);
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Im Your App</h1>
+      <h3>{user ? `The user is ${user}` : "No user Logged In"}</h3>
+      <Login />
     </div>
   );
 }
